@@ -1,7 +1,7 @@
 
 import { lazy, useState } from "react"
 
-import {Suspense} from "react"
+import { Suspense } from "react"
 
 // Application styles
 import "./css/global/global.css"
@@ -77,7 +77,7 @@ import PopUopContainer from "./jsx/pop-ups/PopUopContainer";
 // Primaries 
 import Header from "./jsx/primaries/header/Header";
 import Footer from "./jsx/primaries/footer/Footer";
-const LoadingIndicator = ()=>{
+const LoadingIndicator = () => {
   return <h1>loading...</h1>
 }
 
@@ -106,48 +106,134 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Suspense fallback={<LoadingIndicator />}>
-          <Header
-            userPanelMenuState={userPanelMenuState}
-            setUserPanelMenuState={setUserPanelMenuState}
-            mainMenuState={mainMenuState}
-            setMainMenuState={setMainMenuState}
+        <Header
+          userPanelMenuState={userPanelMenuState}
+          setUserPanelMenuState={setUserPanelMenuState}
+          mainMenuState={mainMenuState}
+          setMainMenuState={setMainMenuState}
+        />
+        <Routes>
+          <Route
+            path='/'
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <MainPage />
+              </Suspense>
+            }
           />
-          <Routes>
-            <Route path='/' element={<MainPage />} />
-            <Route path='/home' element={<MainPage />} />
-            <Route path="/*" element={<ErrorPage />} />
-            <Route path='/auth/:link' element={<AuthPage />} />
-            <Route path='/auth/' element={<AuthPage />} />
-            <Route path='/services' element={<ServicesPage />} />
-            <Route path="/faqs" element={<FAQsPage />} />
-            <Route path="/blog" element={<BlogPage />} />
-            <Route path="/blog/:blogID" element={<BlogDetailPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/contact-us" element={<ContactUsPage />} />
-            <Route path="/admin/dashboard" element={<AdminDashboard />} />
-            <Route
-              path="/user/dashboard/:page"
-              element={
+          <Route
+            path='/home'
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <MainPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/auth/:link'
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <AuthPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/auth/'
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <AuthPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path='/services'
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <ServicesPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/faqs"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <FAQsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <BlogPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/blog/:blogID"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <BlogDetailPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/about-us"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <AboutUsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/contact-us"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <ContactUsPage />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <AdminDashboard />
+              </Suspense>
+            }
+          />
+          <Route
+            path="/user/dashboard/:page"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
                 <UserDashboard
                   userDashboardMenuState={userPanelMenuState}
                   setUserDashboardMenuState={setUserPanelMenuState}
                 />
-              }
-            />
-            <Route
-              path="/user/dashboard/"
-              element={
+              </Suspense>
+            }
+          />
+          <Route
+            path="/user/dashboard/"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
                 <UserDashboard
                   userDashboardMenuState={userPanelMenuState}
                   setUserDashboardMenuState={setUserPanelMenuState}
                 />
-              }
-            />
-          </Routes>
-          <Footer />
-          <PopUopContainer />
-        </Suspense>
+              </Suspense>
+            }
+          />
+          <Route
+            path="/*"
+            element={
+              <Suspense fallback={<LoadingIndicator />}>
+                <ErrorPage />
+              </Suspense>
+            }
+          />
+        </Routes>
+        <Footer />
+        <PopUopContainer />
       </BrowserRouter>
     </div>
   );
