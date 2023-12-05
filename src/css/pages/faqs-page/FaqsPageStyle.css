@@ -22,12 +22,9 @@
 }
 .faqs-page .faqs-poster {
   display: grid;
-  grid-template-columns: 20rem 25rem;
+  grid-template-columns: 25rem 25rem;
   gap: 1rem;
   align-items: center;
-}
-.faqs-page .faqs-poster .left {
-  width: 20rem;
 }
 .faqs-page .faqs-poster .right {
   display: flex;

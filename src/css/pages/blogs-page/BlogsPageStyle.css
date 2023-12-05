@@ -20,7 +20,7 @@
 }
 .blog-page .intro {
   display: grid;
-  grid-template-columns: 20rem 30rem;
+  grid-template-columns: 25rem 30rem;
   padding: 3em 0%;
   z-index: 5;
   gap: 1rem;

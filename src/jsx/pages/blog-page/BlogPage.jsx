@@ -1,5 +1,4 @@
 import Lottie from "react-lottie-player"
-import introAnimation from "../../../animations/main-page/blogs-character.json"
 import blogsBackgroud from "../../../animations/main-page/blogs-wave.json"
 import { Icon } from "@iconify/react"
 import MaxLineText from "../../cutsome-components/Text/MaxLineText"
@@ -44,15 +43,14 @@ const BlogPage = () => {
         <main className="blog-page">
             <div className="intro">
                 <div className="left">
-                    <Lottie
-                        animationData={introAnimation}
-                        play
-                        loop />
+                        <img src={
+                            window.location.origin + "/18.svg"
+                        } alt="" />
 
                 </div>
                 <div className="right">
                     <h1>
-                        SMM PANEL BLOG
+                        SMM PANEL BLOGS
                     </h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis numquam sapiente harum molestias? Architecto distinctio aperiam assumenda est minima numquam vero deserunt nobis, error magni maiores recusandae, velit tempora. Esse.

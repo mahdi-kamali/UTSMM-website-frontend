@@ -1,14 +1,8 @@
 import FAQsAccordion from "../../cutsome-components/accordion/FAQsAccordion"
 import waveBackground from "../../../animations/main-page/comments-background-wave.json"
-import Accordion from "../../cutsome-components/accordion/Accordion"
 
 
-
-import fqsListAnimation from "../../../animations/main-page/list.json"
 import Lottie from "react-lottie-player"
-import clouds from "../../../animations/main-page/cloudes.json"
-import faqsPosterAnimation from "../../../animations/main-page/faqs-poster.json"
-
 import { useFetch } from "../../../lib/useFetch"
 import { API } from "../../../lib/envAccess"
 
@@ -20,9 +14,6 @@ const FAQsPage = () => {
 
 
   waveBackground.fr = 5
-  clouds.fr = 12.5
-  fqsListAnimation.fr = 5
-  faqsPosterAnimation.fr = 10
 
 
 
@@ -34,10 +25,7 @@ const FAQsPage = () => {
 
       <div className="faqs-poster">
         <div className="left">
-          <Lottie
-            animationData={faqsPosterAnimation}
-            play
-            loop />
+            <img src={window.location.origin + "/17.svg"} alt="" />
 
         </div>
         <div className="right">
@@ -80,11 +68,6 @@ const FAQsPage = () => {
 
 
       <div className="background">
-        <Lottie
-          className="cloude-animation"
-          animationData={clouds}
-          play
-          loop />
         <Lottie
           className="charachter-animation"
           animationData={waveBackground}

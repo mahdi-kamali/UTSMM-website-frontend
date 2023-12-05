@@ -38,11 +38,10 @@ $panel-color-6: #dc3545;
     padding-bottom: 3em;
     .faqs-poster {
         display: grid;
-        grid-template-columns: 20rem 25rem;
+        grid-template-columns: 25rem 25rem;
         gap: 1rem;
         align-items: center;
         .left {
-            width: 20rem;
         }
         .right {
             display: flex;
