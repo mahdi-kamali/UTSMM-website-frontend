@@ -3,6 +3,9 @@ import { lazy, useState } from "react"
 
 import { Suspense } from "react"
 
+
+
+
 // Application styles
 import "./css/global/global.css"
 import "./css/style/style.css"
@@ -14,7 +17,7 @@ import "./css/select-box/selectBox.css"
 import "./css/field-box/field-box.css"
 import "./css/table/table.css"
 import "./css/animation/animations.css"
-
+import "./css/loaders/loaders.css"
 
 // Pages Styles 
 import "./css/pages/main-page/MainPageStyle.css"
@@ -77,9 +80,8 @@ import PopUopContainer from "./jsx/pop-ups/PopUopContainer";
 // Primaries 
 import Header from "./jsx/primaries/header/Header";
 import Footer from "./jsx/primaries/footer/Footer";
-const LoadingIndicator = () => {
-  return <h1>loading...</h1>
-}
+import PagesLoaders from "./jsx/loaders/PagesLoaders"
+
 
 
 
@@ -116,15 +118,25 @@ function App() {
           <Route
             path='/'
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <MainPage />
               </Suspense>
             }
           />
+
+          <Route
+            path='/fake'
+            element={
+              <Suspense fallback={<PagesLoaders />}>
+                <PagesLoaders />
+              </Suspense>
+            }
+          />
+
           <Route
             path='/home'
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <MainPage />
               </Suspense>
             }
@@ -132,7 +144,7 @@ function App() {
           <Route
             path='/auth/:link'
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <AuthPage />
               </Suspense>
             }
@@ -140,7 +152,7 @@ function App() {
           <Route
             path='/auth/'
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <AuthPage />
               </Suspense>
             }
@@ -148,7 +160,7 @@ function App() {
           <Route
             path='/services'
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <ServicesPage />
               </Suspense>
             }
@@ -156,7 +168,7 @@ function App() {
           <Route
             path="/faqs"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <FAQsPage />
               </Suspense>
             }
@@ -164,7 +176,7 @@ function App() {
           <Route
             path="/blog"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <BlogPage />
               </Suspense>
             }
@@ -172,7 +184,7 @@ function App() {
           <Route
             path="/blog/:blogID"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <BlogDetailPage />
               </Suspense>
             }
@@ -180,7 +192,7 @@ function App() {
           <Route
             path="/about-us"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <AboutUsPage />
               </Suspense>
             }
@@ -188,7 +200,7 @@ function App() {
           <Route
             path="/contact-us"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <ContactUsPage />
               </Suspense>
             }
@@ -196,7 +208,7 @@ function App() {
           <Route
             path="/admin/dashboard"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <AdminDashboard />
               </Suspense>
             }
@@ -204,7 +216,7 @@ function App() {
           <Route
             path="/user/dashboard/:page"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <UserDashboard
                   userDashboardMenuState={userPanelMenuState}
                   setUserDashboardMenuState={setUserPanelMenuState}
@@ -215,7 +227,7 @@ function App() {
           <Route
             path="/user/dashboard/"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <UserDashboard
                   userDashboardMenuState={userPanelMenuState}
                   setUserDashboardMenuState={setUserPanelMenuState}
@@ -226,7 +238,7 @@ function App() {
           <Route
             path="/*"
             element={
-              <Suspense fallback={<LoadingIndicator />}>
+              <Suspense fallback={<PagesLoaders />}>
                 <ErrorPage />
               </Suspense>
             }

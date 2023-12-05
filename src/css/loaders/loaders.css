@@ -1,0 +1,41 @@
+.pages-loaders {
+  min-height: 100dvh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 6em;
+  padding-bottom: 6em;
+  background-image: url("../../images/auth-page/background.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  justify-content: center;
+}
+.pages-loaders h1 {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(3vw + 2rem);
+  gap: 1.5rem;
+  text-transform: uppercase;
+  animation: fadeInFadeOn 3s ease infinite;
+}
+.pages-loaders h1 svg {
+  font-size: 150%;
+}
+
+@keyframes fadeInFadeOn {
+  0% {
+    opacity: 0;
+    margin-top: 0;
+  }
+  50% {
+    opacity: 1;
+    margin-top: 1rem;
+  }
+  100% {
+    opacity: 0;
+    margin-top: 0;
+  }
+}/*# sourceMappingURL=loaders.css.map */
