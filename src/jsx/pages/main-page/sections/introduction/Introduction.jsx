@@ -82,7 +82,7 @@ export default function Introduction() {
             title: "Services",
             value: "240",
             description: "Our dedication to excellence shines through the provision of 240 top-notch services. Each service represents our unwavering commitment to delivering quality solutions.",
-            animation: window.location.origin + '/.svg'
+            animation: window.location.origin + '/5.svg'
         }
     ];
 
@@ -323,11 +323,13 @@ export default function Introduction() {
                     <div className="body">
                         <div className="item">
                             <div className="item-header">
-                                <Lottie
+                                {/* <Lottie
                                     animationData={stepOneAnimation}
                                     play
                                     loop
-                                />
+                                /> */}
+                                <img src={
+                                    window.location.origin + "/11.svg"} alt="" />
                             </div>
                             <div className="item-body">
                                 <h1>Sign Up</h1>
@@ -338,11 +340,8 @@ export default function Introduction() {
                         </div>
                         <div className="item">
                             <div className="item-header">
-                                <Lottie
-                                    animationData={stepTwoAnimation}
-                                    play
-                                    loop
-                                />
+                                <img src={
+                                    window.location.origin + "/12.svg"} alt="" />
                             </div>
                             <div className="item-body">
                                 <h1>Go Dashboard</h1>
@@ -353,11 +352,8 @@ export default function Introduction() {
                         </div>
                         <div className="item">
                             <div className="item-header">
-                                <Lottie
-                                    animationData={stepThreeAnimation}
-                                    play
-                                    loop
-                                />
+                            <img src={
+                                    window.location.origin + "/13.svg"} alt="" />
                             </div>
                             <div className="item-body">
                                 <h1>Choese  Service </h1>
@@ -366,11 +362,8 @@ export default function Introduction() {
                         </div>
                         <div className="item">
                             <div className="item-header">
-                                <Lottie
-                                    animationData={stepFourAnimation}
-                                    play
-                                    loop
-                                />
+                            <img src={
+                                    window.location.origin + "/14.svg"} alt="" />
                             </div>
                             <div className="item-body">
                                 <h1>Order</h1>
@@ -381,11 +374,8 @@ export default function Introduction() {
                         </div>
                         <div className="item">
                             <div className="item-header">
-                                <Lottie
-                                    animationData={stepFiveAnimation}
-                                    play
-                                    loop
-                                />
+                                <img src={
+                                    window.location.origin + "/10.svg"} alt="" />
                             </div>
                             <div className="item-body">
                                 <h1> Enjoy & Peace !</h1>

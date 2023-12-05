@@ -67,8 +67,10 @@ const AuthPage = () => {
                     text: "Welcome Back,please click ok button",
                     icon: "success"
                 }).then(() => {
-                    console.log("ended")
-                    window.location.reload();
+                    setTimeout(() => {
+                        navigator("/user/dashboard")
+                    }
+                        , 2000)
                 })
 
             })
@@ -95,14 +97,13 @@ const AuthPage = () => {
             }).then(response => {
                 const data = response.data
                 const token = data.token
-                console.log(response)
+                sessionStorage.setItem("token", JSON.stringify(token))
                 Swal.fire({
                     title: "Login Success!",
                     text: "Welcome Back,please click ok button",
                     icon: "success"
                 }).then(() => {
-                    console.log("ended")
-                    window.location.reload(true);
+                    navigator("/user/dashboard")
                 })
 
             }).catch(error => {

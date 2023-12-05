@@ -16,6 +16,7 @@ export function useFetch(defaultUrl, deafultValue) {
     const [loading, setLoading] = useState(true)
     const [refresh, setRefresh] = useState(false)
     const navigator = useNavigate()
+    const token = JSON.parse(sessionStorage.getItem("token"))
 
     function refreshData() {
         setRefresh(!refresh)
@@ -37,7 +38,6 @@ export function useFetch(defaultUrl, deafultValue) {
                     if (err?.response?.status === 403) {
                         sessionStorage.removeItem("token")
                         navigator("/auth")
-                        window.location.reload(true)
                     }
                     setError(err)
                 } finally {

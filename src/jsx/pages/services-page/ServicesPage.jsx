@@ -1,11 +1,5 @@
 
 
-// Swiper Js
-import { Navigation, Pagination, Scrollbar, A11y, EffectCoverflow } from 'swiper/modules';
-import { Swiper, SwiperSlide } from 'swiper/react';
-
-
-
 
 
 // Puzzle Man 
@@ -15,14 +9,12 @@ import puzzleMan from "../../../images/services-page/services/search/With Puzzle
 
 
 // Search
-import SelectSearch from 'react-select-search';
 import { useState } from 'react';
 import Lottie from 'react-lottie-player';
 
 
 
 // Animations 
-import servicesPoster from "../../../animations/main-page/services-page-poster.json"
 import servicesPosterWave from "../../../animations/main-page/services-page-wave.json"
 import servicesTextuareBackground from "../../../animations/main-page/services-page-background-animation.json"
 import Wave from 'react-wavify';
@@ -57,7 +49,6 @@ const headerList = [
 ]
 
 
-servicesPoster.fr = 10
 servicesPosterWave.fr = 10
 servicesTextuareBackground.fr = 5
 
@@ -100,8 +91,6 @@ const ServicesPage = () => {
     const [sortedCategories, setSortedCategories] = useState([])
     const [visibleCategories, setVisibleCategoires] = useState([])
 
-
-    const [carsdCount, setCardsCount] = useState(5)
 
 
 
@@ -289,10 +278,8 @@ const ServicesPage = () => {
             <section className="poster">
 
                 <div className="left">
-                    <Lottie
-                        animationData={servicesPoster}
-                        play
-                        loop />
+                 
+                    <img src={window.location.origin + "/8.svg"} alt="" />
                 </div>
 
                 <div className="right">
@@ -328,515 +315,10 @@ const ServicesPage = () => {
             </section>
 
 
-            {/* <section className="suggested-services">
-                <Swiper
-                    modules={[Navigation, Pagination, A11y]}
-                    spaceBetween={20}
-                    slidesPerView={carsdCount}
-                    navigation={{
-                        nextEl: ".arrow-right",
-                        prevEl: ".arrow-left",
-                        disabledClass: "arrow-disabled"
-                    }}
-                    pagination={
-                        {
-                            clickable: true,
-                            el: ".swiper-custom-pagination"
-                        }
-                    }
-
-
-                    breakpoints={{
-                        0: {
-                            slidesPerView: 1.25,
-                        },
-                        400: {
-                            slidesPerView: 2,
-                        },
-                        600: {
-                            slidesPerView: 2.5,
-                        },
-                        800: {
-                            slidesPerView: 3
-                        },
-                        1000: {
-                            slidesPerView: 3.5
-                        },
-                        1200: {
-                            slidesPerView: 4
-                        },
-                        1400: {
-                            slidesPerView: 5
-                        },
-                        1600: {
-                            slidesPerView: 5.5
-                        },
-                        1800: {
-                            slidesPerView: 6
-                        },
-                        1900: {
-                            slidesPerView: 6.5
-                        }
-                    }}
-
-                >
-                    <SwiperSlide className='first-slide slide'>
-                        <div className="card">
-                            <div className="header">
-                                <img
-                                    src={require("../../../images/services-page/services/suggestions-offers/2.png")} />
-                            </div>
-                            <div className="body">
-                                <h1>NEW SERVICES</h1>
-                                <small>
-                                    New Upcoming Services , Ready For Boosting Your Account
-                                </small>
-                            </div>
-                            <div className="button">
-                                <button>
-                                    See all
-                                </button>
-                            </div>
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-                    <SwiperSlide className='normal-slide slide'>
-                        <div className="header">
-                            <img
-                                src={require("../../../images/services-page/services/suggestions-offers/icon-2.png")} />
-                        </div>
-                        <div className="body">
-                            <h1>
-                                Instagram - Comment
-                            </h1>
-                            <ul>
-                                <li>
-                                    Video + TV + Reel
-                                </li>
-                                <li>
-                                    Instant
-                                </li>
-                                <li>
-                                    Working After Update
-                                </li>
-                                <li>
-                                    Min Order : 10
-                                </li>
-                                <li>
-                                    Max Order : 500000
-                                </li>
-                            </ul>
-                        </div>
-                        <div className="button">
-                            <h2>
-                                <span>
-                                    $2.85
-                                </span>
-                                <small>
-                                    PER 1000
-                                </small>
-                            </h2>
-                            <button>
-                                <span>
-                                    See & Buy
-                                </span>
-                                <Icon icon="clarity:shopping-cart-solid" />
-                            </button>
-
-                        </div>
-                    </SwiperSlide>
-
-
-                    <div className="controlls">
-                        <button className="arrow-left arrow">
-                            <Icon icon="ri:arrow-left-s-line" />
-                        </button>
-                        <div className="swiper-custom-pagination">
-
-                        </div>
-                        <button className="arrow-right arrow">
-                            <Icon icon="ri:arrow-right-s-line" />
-                        </button>
-                    </div>
-
-                </Swiper>
-            </section> */}
-
             <PopularServices platforms={platformsData} />
 
 
             <section className="search">
-                <div className="left">
-                    <img src={puzzleMan} alt="" />
-                </div>
                 <form className="right" action="#">
                     <div className="form-search">
                         <Icon icon="iconamoon:search" />
@@ -883,7 +365,7 @@ const ServicesPage = () => {
                             >
                                 <div
                                     className="item-header">
-                                    <img src={SERVER.BASE_URL + platform.image} alt="" />
+                                    <img src={SERVER.BASE_URL + platform.image} />
                                 </div>
                                 <div
                                     className="item-body">

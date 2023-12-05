@@ -53,7 +53,7 @@ export default function Poster() {
                     icon: "success",
                     text: res.data.message,
                 }).finally(end => {
-                    window.location.reload()
+                    setIsActive(isTokenExist())
                 })
 
             })
