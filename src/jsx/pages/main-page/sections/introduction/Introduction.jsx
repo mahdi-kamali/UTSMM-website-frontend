@@ -22,24 +22,11 @@ import itemThree from "../../../../../images/main-page/intro-2/svg/3.svg"
 import itemFour from "../../../../../images/main-page/intro-2/svg/4.svg"
 
 
-import worldMap from "../../../../../animations/main-page/world-map.json"
-
-
-import totalOrders from "../../../../../animations/main-page/total-orders.json"
-import support from "../../../../../animations/main-page/support.json"
-
-import totalService from "../../../../../animations/main-page/total-services.json"
-
 import services from "../../../../../animations/main-page/services.json"
 import Marquee from "react-fast-marquee";
 
 
 
-import stepOneAnimation from "../../../../../animations/main-page/main-page-step-1.json"
-import stepTwoAnimation from "../../../../../animations/main-page/main-page-step-2.json"
-import stepThreeAnimation from "../../../../../animations/main-page/main-page-step-3.json"
-import stepFourAnimation from "../../../../../animations/main-page/main-page-step-4.json"
-import stepFiveAnimation from "../../../../../animations/main-page/main-page-step-5.json"
 import stepArrowAnimation from "../../../../../animations/main-page/main-page-steps-arrow.json"
 import CompanyStaticsItem from "./components/CompanyStaticsItem";
 
@@ -323,11 +310,6 @@ export default function Introduction() {
                     <div className="body">
                         <div className="item">
                             <div className="item-header">
-                                {/* <Lottie
-                                    animationData={stepOneAnimation}
-                                    play
-                                    loop
-                                /> */}
                                 <img src={
                                     window.location.origin + "/11.svg"} alt="" />
                             </div>
