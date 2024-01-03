@@ -3,7 +3,6 @@
 
 
 
-import notificationAnimation from "../../../../../../../animations/user-dashboard/dashboard-notification.json"
 
 
 
@@ -91,6 +90,8 @@ const eventsItems = [
     },
 
 ]
+
+
 
 
 const RecentEvents = () => {

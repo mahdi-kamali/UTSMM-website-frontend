@@ -72,7 +72,20 @@ $panel-color-6: #dc3545;
     }
 }
 
-
+.accordion-true {
+    opacity: 1;
+    background-color: white;
+    .accordion-header {
+        color: $color-1;
+        border-bottom: 2px solid #698ef323;
+    }
+    .accordion-body {
+        grid-template-rows: 1fr;
+    }
+    .accordion-arrow {
+        rotate: 180deg;
+    }
+}
 
 
 // Accordions
@@ -124,17 +137,4 @@ $panel-color-6: #dc3545;
         cursor: pointer;
     }
 }
-.accordion-true {
-    opacity: 1;
-    background-color: white;
-    .accordion-header {
-        color: $color-1;
-        border-bottom: 2px solid #698ef323;
-    }
-    .accordion-body {
-        grid-template-rows: 1fr;
-    }
-    .accordion-arrow {
-        rotate: 180deg;
-    }
-}
+

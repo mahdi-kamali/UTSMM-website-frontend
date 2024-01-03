@@ -1,6 +1,6 @@
 
 
-const SERVER_URL = "http://utsmm.com"
+const SERVER_URL = "https://utsmm.com"
 
 
 export const CLIENT = {
