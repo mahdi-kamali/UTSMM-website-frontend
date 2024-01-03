@@ -99,7 +99,7 @@ const AuthPage = () => {
                 const token = data.token
                 sessionStorage.setItem("token", JSON.stringify(token))
                 Swal.fire({
-                    title: "Login Success!",
+                    title: data.message,
                     text: "Welcome Back,please click ok button",
                     icon: "success"
                 }).then(() => {

@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom"
 
 
 
-const token = JSON.parse(sessionStorage.getItem("token"))
 
 
 
@@ -58,6 +57,9 @@ export function usePost(url) {
     const [error, setError] = useState(null)
     const [loading, setLoading] = useState(false)
 
+    const token = JSON.parse(sessionStorage.getItem("token"))
+
+
 
     const post = async (postData) => {
         setLoading(true)
@@ -101,6 +103,9 @@ export function usePost(url) {
 
 export async function post(url, postData) {
 
+    const token = JSON.parse(sessionStorage.getItem("token"))
+
+
     return await axios({
         method: "post",
         url: url,
@@ -119,6 +124,9 @@ export async function post(url, postData) {
 
 export async function put(url, postData) {
 
+    const token = JSON.parse(sessionStorage.getItem("token"))
+
+
     return await axios({
         method: "put",
         url: url,
@@ -135,6 +143,9 @@ export async function put(url, postData) {
 }
 
 export async function deletE(url, deleteData) {
+
+    const token = JSON.parse(sessionStorage.getItem("token"))
+
 
     return await axios({
         method: "delete",
@@ -153,6 +164,9 @@ export async function deletE(url, deleteData) {
 
 
 export async function get(url, postData) {
+
+    const token = JSON.parse(sessionStorage.getItem("token"))
+
 
     return await axios({
         method: "get",
