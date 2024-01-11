@@ -142,16 +142,45 @@ const AddFounds = () => {
                         amount: amountOfMoney
                     }
                 ).then(response => {
+                    // if (response) {
+                    //     Swal.fire({
+                    //         title: "Open Link, and pay!",
+                    //         text: response.data,
+                    //         icon: 'info',
+                    //         confirmButtonText: "Open link"
+                    //     }).then(result => {
+                    //         window.open(response.data, "_blank")
+                    //         console.log(result)
+                    //     })
+                    // }
+
                     if (response) {
-                        Swal.fire({
-                            title: "Open Link, and pay!",
-                            text: response.data,
-                            icon: 'info',
-                            confirmButtonText: "Open link"
-                        }).then(result => {
-                            window.open(response.data, "_blank")
-                            console.log(result)
-                        })
+                        const data = response.data
+                        const action = data.action
+                        switch (action) {
+                            case "redirect": {
+
+                                if (data.action === "redirect") {
+                                    const { url, method, body } = data;
+                                    const form = document.createElement("form");
+                                    form.method = method || "POST";
+                                    form.action = url;
+                                    form.target = "_blank"
+                                    for (const key in body) {
+                                        if (body.hasOwnProperty(key)) {
+                                            const input = document.createElement("input");
+                                            input.type = "hidden";
+                                            input.name = key;
+                                            input.value = body[key];
+                                            form.appendChild(input);
+                                        }
+                                    }
+                                    document.body.appendChild(form);
+                                    form.submit();
+                                }
+
+                            }
+                        }
                     }
                 }).catch(err => {
                     const response = err?.response?.data
