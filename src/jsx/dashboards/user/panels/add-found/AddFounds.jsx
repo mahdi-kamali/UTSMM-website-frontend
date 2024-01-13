@@ -142,46 +142,49 @@ const AddFounds = () => {
                         amount: amountOfMoney
                     }
                 ).then(response => {
-                    // if (response) {
-                    //     Swal.fire({
-                    //         title: "Open Link, and pay!",
-                    //         text: response.data,
-                    //         icon: 'info',
-                    //         confirmButtonText: "Open link"
-                    //     }).then(result => {
-                    //         window.open(response.data, "_blank")
-                    //         console.log(result)
-                    //     })
-                    // }
 
-                    if (response) {
-                        const data = response.data
-                        const action = data.action
-                        switch (action) {
-                            case "redirect": {
-
-                                if (data.action === "redirect") {
-                                    const { url, method, body } = data;
-                                    const form = document.createElement("form");
-                                    form.method = method || "POST";
-                                    form.action = url;
-                                    form.target = "_blank"
-                                    for (const key in body) {
-                                        if (body.hasOwnProperty(key)) {
-                                            const input = document.createElement("input");
-                                            input.type = "hidden";
-                                            input.name = key;
-                                            input.value = body[key];
-                                            form.appendChild(input);
-                                        }
+                    const { payMethod, url, method, body } = response.data
+                    switch (payMethod) {
+                        case "cryptomous": {
+                            Swal.fire({
+                                title: "Open Link, and pay!",
+                                text: url,
+                                icon: 'info',
+                                confirmButtonText: "Open link"
+                            }).then(result => {
+                                window.open(url, "_blank")
+                            })
+                            break;
+                        }
+                        case "perfectmoney": {
+                            Swal.fire({
+                                title: "Your Payment Ready To go!",
+                                text: "in order for continue for final step , click to open link button",
+                                icon: 'info',
+                                confirmButtonText: "Open link"
+                            }).then(result => {
+                                const form = document.createElement("form");
+                                form.method = method || "POST";
+                                form.action = url;
+                                form.target = "_blank"
+                                for (const key in body) {
+                                    if (body.hasOwnProperty(key)) {
+                                        const input = document.createElement("input");
+                                        input.type = "hidden";
+                                        input.name = key;
+                                        input.value = body[key];
+                                        form.appendChild(input);
                                     }
-                                    document.body.appendChild(form);
-                                    form.submit();
                                 }
-
-                            }
+                                document.body.appendChild(form);
+                                form.submit();
+                            })
+                            break ;
                         }
                     }
+
+
+
                 }).catch(err => {
                     const response = err?.response?.data
                     if (response) {

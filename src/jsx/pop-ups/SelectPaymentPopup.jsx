@@ -1,6 +1,7 @@
 import { useDispatch } from "react-redux"
 import { closePopUp } from "../../features/popUpReducer"
 import { Icon } from "@iconify/react"
+import { SERVER } from "../../lib/envAccess"
 
 
 
@@ -28,6 +29,8 @@ const SelectPaymentPopup = ({ methods, resultFunction, currentSelected }) => {
 
 
 
+
+
     return (
         <div className='select-payment-method-pop-up'>
             <button className="close-button"
@@ -48,6 +51,8 @@ const SelectPaymentPopup = ({ methods, resultFunction, currentSelected }) => {
                             key={index}
                             onClick={() => handleItemClick(item)}
                         >
+                            <img src={SERVER.BASE_URL + item.image} />
+
                             <span>{index} - </span>
                             <p>
                                 {item.name}

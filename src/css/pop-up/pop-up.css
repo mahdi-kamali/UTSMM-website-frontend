@@ -321,7 +321,7 @@
   display: flex;
   flex-direction: column;
   max-height: 90dvh;
-  width: 50rem;
+  width: 30rem;
   max-width: 90dvw;
   padding: 2em;
 }
@@ -347,12 +347,17 @@
   width: max-content;
   max-width: 90%;
   transition: all 0.5s ease;
-  border-radius: 0.2rem;
+  border-radius: 1rem;
   cursor: pointer;
+  width: 100%;
 }
 .pop-up .select-payment-method-pop-up .pop-up-body .item span {
   font-size: 1.5rem;
   width: 3ch;
+}
+.pop-up .select-payment-method-pop-up .pop-up-body .item img {
+  width: 3rem;
+  height: 3rem;
 }
 .pop-up .select-payment-method-pop-up .pop-up-body .item p {
   font-size: 1rem;

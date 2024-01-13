@@ -351,7 +351,7 @@ $panel-color-6: #dc3545;
         display: flex;
         flex-direction: column;
         max-height: 90dvh;
-        width: 50rem;
+        width: 30rem;
         max-width: 90dvw;
         padding: 2em;
         .pop-up-header {
@@ -374,15 +374,23 @@ $panel-color-6: #dc3545;
                 width: max-content;
                 max-width: 90%;
                 transition: all 0.5s ease;
-                border-radius: 0.2rem;
+                border-radius: 1rem;
                 cursor: pointer;
+                width: 100%;
                 span {
                     font-size: 1.5rem;
                     width: 3ch;
                 }
+
+                img {
+                    width : 3rem;
+                    height: 3rem;
+                }
                 p {
                     font-size: 1rem;
                 }
+
+
                 &:hover {
                     background-color: $color-5;
                     color: white;
