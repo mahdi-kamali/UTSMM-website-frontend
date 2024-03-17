@@ -821,7 +821,7 @@
   display: flex;
   flex-direction: column;
 }
-.main-page .faqs .faqs-list .right button {
+.main-page .faqs .faqs-list .right :is(button, a) {
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -1142,7 +1142,7 @@
 .main-page .customers-reviews .first-section .right h1 span {
   color: #0d4bf4;
 }
-.main-page .customers-reviews .first-section .right button {
+.main-page .customers-reviews .first-section .right :is(button, a) {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1526,7 +1526,7 @@
   .main-page .customers-reviews .first-section .right h1 span {
     color: #0d4bf4;
   }
-  .main-page .customers-reviews .first-section .right button {
+  .main-page .customers-reviews .first-section .right :is(button, a) {
     display: flex;
     align-items: center;
     justify-content: center;
