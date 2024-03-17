@@ -7,6 +7,7 @@ import { Icon } from "@iconify/react";
 import { useState } from 'react';
 import { useFetch } from '../../../../lib/useFetch';
 import { API, SERVER } from '../../../../lib/envAccess';
+import {Link} from "react-router-dom";
 
 
 export default function PopularServices({ platforms }) {
@@ -99,7 +100,7 @@ export default function PopularServices({ platforms }) {
 
             >
                 <SwiperSlide className='first-slide slide'>
-                    <div className="card">
+                    <Link to={'#'} className="card">
                         <div className="header">
                             <img
                                 src={require("../../../../images/services-page/services/suggestions-offers/2.png")} />
@@ -115,7 +116,7 @@ export default function PopularServices({ platforms }) {
                                 See all
                             </button>
                         </div>
-                    </div>
+                    </Link>
                 </SwiperSlide>
 
                 {

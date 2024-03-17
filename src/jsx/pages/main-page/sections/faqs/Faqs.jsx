@@ -11,6 +11,7 @@ import faqsQuestion from "../../../../../animations/main-page/question.json"
 import FiledSet from "../../../../cutsome-components/Fieldset/FiledSet"
 import { API } from "../../../../../lib/envAccess"
 import { useFetch, usePost } from "../../../../../lib/useFetch"
+import {Link} from "react-router-dom";
 
 
 
@@ -110,12 +111,12 @@ export default function Faqs() {
                         animationData={faqs}
                         play
                         loop />
-                    <button>
+                    <Link to={'#'}>
                         <span>
                             Find More Q&A
                         </span>
                         <Icon icon="fluent:next-20-filled" />
-                    </button>
+                    </Link>
                 </div>
                 <div className="faqs-background">
                     <Lottie
