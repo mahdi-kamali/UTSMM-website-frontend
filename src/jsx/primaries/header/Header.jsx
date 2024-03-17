@@ -1,7 +1,7 @@
 import { Icon } from '@iconify/react';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useFetcher, useLocation, useNavigate } from 'react-router-dom';
+import {Link, useFetcher, useLocation, useNavigate} from 'react-router-dom';
 const Header = (
     {
         userPanelMenuState,
@@ -17,11 +17,6 @@ const Header = (
 
 
     const menuList = [
-        {
-            title: "Home",
-            route: "/home",
-            icon: <Icon icon="majesticons:home" />
-        },
         {
             title: "Account",
             route: "/auth",
@@ -133,16 +128,12 @@ const Header = (
     return (
         <header style={headerStyle}>
             <div className="left">
-                <img
-                    src={require("../../../images/header/logo.png")}
-                    className="logo" />
+                <Link to={'/'}>
+                    <img src={require("../../../images/header/logo.png")} className="logo"/>
+                </Link>
             </div>
             <div className={`right right-${mainMenuState}`}>
-                <ul className={`menu`}>
-                    <Icon
-                        onClick={() => setMainMenuState(false)}
-                        className='menu-close'
-                        icon="zondicons:close-solid" />
+                <ul onClick={toggleMenu} className={`menu`}>
                     {
                         menuList.reverse().map((item, index) => {
                             return <li
@@ -164,9 +155,6 @@ const Header = (
                 onClick={toggleMenu}
                 className='menu-icon'
                 icon="ep:menu" />
-
-
-
         </header>
     )
 }

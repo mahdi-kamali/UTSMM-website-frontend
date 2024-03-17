@@ -1,10 +1,5 @@
-
 import { lazy, useState } from "react"
-
 import { Suspense } from "react"
-
-
-
 
 // Application styles
 import "./css/global/global.css"
