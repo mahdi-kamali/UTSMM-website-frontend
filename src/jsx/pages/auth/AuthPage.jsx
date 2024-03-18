@@ -10,7 +10,7 @@ import Lottie from 'react-lottie-player'
 import animationOne from "../../../images/auth-page/animation.json"
 import animationTwo from "../../../images/auth-page/animation-2.json"
 import FormFields from "./components/FormFields";
-import { useNavigate, useParams } from "react-router-dom";
+import {Link, useNavigate, useParams} from "react-router-dom";
 
 
 import Select from 'react-select'
@@ -172,13 +172,10 @@ const AuthPage = () => {
                                 required={true}
                                 placeHolder={"Password"}
                                 icon={<Icon icon="mdi:password" />} />
-
                         </div>
                     </div>
                     <div className={`sign-up-fields part ${pageMode === "sign-up" ? "expanded" : ""}`}>
                         <div className="container">
-
-
                             <FormFields
                                 name={"passwordConfirm"}
                                 placeHolder={"Password-Confirmation"}
@@ -244,7 +241,7 @@ const AuthPage = () => {
                     </div>
                 </div>
                 <div className="form-buttons">
-                    <small>Need Help ? Click Here</small>
+                    <Link style={{color: 'white'}} to={'/auth/recovery/password'}>Forgotten your password? Click here.</Link>
                     <button className="submit">Submit</button>
                 </div>
                 <div className="form-auth-options">

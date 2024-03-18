@@ -68,6 +68,7 @@ import PopUopContainer from "./jsx/pop-ups/PopUopContainer";
 import Header from "./jsx/primaries/header/Header";
 import Footer from "./jsx/primaries/footer/Footer";
 import PagesLoaders from "./jsx/loaders/PagesLoaders"
+import PasswordRecoveryPage from "./jsx/pages/password-recovery-page/passwordRecoveryPage";
 
 // Pages
 // import other dependencies...
@@ -116,9 +117,9 @@ function App() {
                         </Suspense>}
                     />
                     <Route
-                        path='/auth/:link'
+                        path='/auth/recovery/password'
                         element={<Suspense fallback={<PagesLoaders/>}>
-                            <AuthPage/>
+                            <PasswordRecoveryPage />
                         </Suspense>}
                     />
                     <Route
