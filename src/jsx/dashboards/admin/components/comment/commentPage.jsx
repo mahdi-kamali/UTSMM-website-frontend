@@ -23,7 +23,8 @@ export default function CommentPage() {
         "Name",
         "Tel",
         "Message",
-        "Accept"
+        "Accept",
+        "Answer"
     ]
 
     const orderListButtons = [
@@ -85,14 +86,14 @@ export default function CommentPage() {
                 {
                     <TableBody>
                         {
-                            !loading ? sortedList?.map((record) => {
-                                return <Row key={record.orderId}>
+                            !loading ? sortedList?.map((record, index) => {
+                                return <Row key={index}>
                                     <Property>
                                         <div className="property-header">
                                             {headersList[0]}
                                         </div>
                                         <div className="property-body">
-                                            {record._id}
+                                            {record.name}
                                         </div>
                                     </Property>
                                     <Property>
@@ -100,7 +101,7 @@ export default function CommentPage() {
                                             {headersList[1]}
                                         </div>
                                         <div className="property-body">
-                                            {record.userID}
+                                            {record.tel}
                                         </div>
                                     </Property>
                                     <Property>
@@ -108,7 +109,7 @@ export default function CommentPage() {
                                             {headersList[2]}
                                         </div>
                                         <div className="property-body ">
-                                            {record.service.name}
+                                            {record.message}
                                         </div>
                                     </Property>
                                     <Property>
@@ -116,7 +117,7 @@ export default function CommentPage() {
                                             {headersList[3]}
                                         </div>
                                         <div className="property-body">
-                                            ${record.charge}
+                                            <button>Accept</button>
                                         </div>
                                     </Property>
                                     <Property>
@@ -124,37 +125,9 @@ export default function CommentPage() {
                                             {headersList[4]}
                                         </div>
                                         <div className="property-body">
-                                            {new Date(record.createdAt).toUTCString()}
+                                            <input type="text" placeholder={'Write here'}/>
                                         </div>
                                     </Property>
-                                    <Property>
-                                        <div className="property-header">
-                                            {headersList[5]}
-                                        </div>
-                                        <div className="property-body">
-                                            {record.quantity}
-                                        </div>
-                                    </Property>
-                                    <Property>
-                                        <div className="property-header">
-                                            {headersList[6]}
-                                        </div>
-                                        <div className="property-body">
-                                            {record.link}
-                                        </div>
-                                    </Property>
-                                    <Property>
-                                        <div className="property-header">
-                                            {headersList[7]}
-                                        </div>
-                                        <div className="property-body status-property">
-                                            <span className={`status
-                        ${record.status.replace(" ", "")}`}>
-                                                {record.status}
-                                            </span>
-                                        </div>
-                                    </Property>
-
                                 </Row>
                             }) : <h1>Loading...</h1>
                         }
