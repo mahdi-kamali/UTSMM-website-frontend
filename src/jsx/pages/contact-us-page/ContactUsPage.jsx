@@ -9,6 +9,7 @@ import { Icon } from '@iconify/react'
 import { post } from "../../../lib/useFetch"
 import { API } from '../../../lib/envAccess'
 import { showSuccess, showError } from "../../../lib/alertHandler"
+import {Link} from "react-router-dom";
 
 const Input = ({ name, type, svg, placeHolder }) => {
 
@@ -27,16 +28,16 @@ const Input = ({ name, type, svg, placeHolder }) => {
 }
 
 
-const Media = ({ svg, title }) => {
+const Media = ({ svg, title, link }) => {
 
-    return <div className="item">
+    return <Link to={link} className="item">
         <div className="item-left">
             {svg}
         </div>
         <div className="item-right">
             {title}
         </div>
-    </div>
+    </Link>
 }
 
 
@@ -82,14 +83,17 @@ const ContactUsPage = () => {
                         loop />
                     <div className="get-in-touch">
                         <Media
+                            link={'tel:+1-760-284-3410'}
                             svg={<Icon icon="gg:phone" />}
                             title={"+1-760-284-3410"}
                         />
                         <Media
+                            link={'maitlo:email@domain.com'}
                             svg={<Icon icon="ic:baseline-email" />}
                             title={"email@domain.com"}
                         />
                         <Media
+                            link={'#'}
                             svg={<Icon icon="fluent:location-48-filled" />}
                             title={"931 Asia Martin"}
                         />

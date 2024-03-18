@@ -33,6 +33,7 @@ import CompanyStaticsItem from "./components/CompanyStaticsItem";
 
 import { useFetch } from "../../../../../lib/useFetch";
 import { API, SERVER } from "../../../../../lib/envAccess";
+import {Link} from "react-router-dom";
 
 
 
@@ -211,7 +212,7 @@ export default function Introduction() {
                     </p>
                 </div>
                 <div className="body">
-                    <div className="item">
+                    <Link to={'#'} className="item">
                         <div className="item-header">
                             <img src={require("../../../../../images/main-page/intro-2/our-popular-services/1.png")} alt="" />
                         </div>
@@ -236,8 +237,8 @@ export default function Introduction() {
                                 <Icon icon="mingcute:right-fill" />
                             </button>
                         </div>
-                    </div>
-                    <div className="item">
+                    </Link>
+                    <Link to={'#'} className="item">
                         <div className="item-header">
                             <img src={require("../../../../../images/main-page/intro-2/our-popular-services/1.png")} alt="" />
                         </div>
@@ -262,8 +263,8 @@ export default function Introduction() {
                                 <Icon icon="mingcute:right-fill" />
                             </button>
                         </div>
-                    </div>
-                    <div className="item">
+                    </Link>
+                    <Link to={'#'} className="item">
                         <div className="item-header">
                             <img src={require("../../../../../images/main-page/intro-2/our-popular-services/1.png")} alt="" />
                         </div>
@@ -288,7 +289,7 @@ export default function Introduction() {
                                 <Icon icon="mingcute:right-fill" />
                             </button>
                         </div>
-                    </div>
+                    </Link>
                 </div>
 
 

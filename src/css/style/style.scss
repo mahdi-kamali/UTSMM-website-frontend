@@ -46,6 +46,9 @@ header {
     left: 50%;
     border-radius: 0 0 100rem 100rem !important;
     .menu {
+        width: 50%;
+        height: 100vh;
+        overflow: auto;
         display: flex;
         font-weight: bold;
         align-items: center;

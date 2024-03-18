@@ -22,6 +22,7 @@ import Lottie from 'react-lottie-player'
 import customersReviews from "../../../../../animations/main-page/main-page-comments.json"
 import { useState } from 'react';
 import FiledSet from '../../../../cutsome-components/Fieldset/FiledSet';
+import {Link} from "react-router-dom";
 
 
 
@@ -71,10 +72,10 @@ export default function Reviews() {
                         SERVICES <br />
 
                     </h1>
-                    <button>
+                    <Link to={'#'}>
                         <span>See More</span>
                         <Icon icon="icon-park-outline:right" />
-                    </button>
+                    </Link>
                 </div>
             </div>
             <div className="comments">
