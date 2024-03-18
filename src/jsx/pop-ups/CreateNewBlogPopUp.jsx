@@ -8,13 +8,15 @@ import { useState } from "react"
 import { post, put } from "../../lib/useFetch"
 import { API } from "../../lib/envAccess"
 import { showError, showSuccess } from "../../lib/alertHandler"
-
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 
 export default function CreateNewBlogPopUp({ refresh }) {
 
 
     const [image, setImage] = useState(require("../../images/place-holder/1.png"))
+    const [description, setDescription] = useState('');
 
 
     const dispatcher = useDispatch()
@@ -97,23 +99,9 @@ export default function CreateNewBlogPopUp({ refresh }) {
                     </FieldBody>
                 </AdminPanelFiledset>
 
-                <AdminPanelFiledset className={"create-faq-field-box"}>
-                    <Legend>
-                        <Icon icon="material-symbols:description-outline" />
-                        <span>Description</span>
-                    </Legend>
-                    <FieldBody>
-                        <textarea
-                            cols={10}
-                            rows={10}
-                            type="description"
-                            name="description"
-                            defaultValue={""} />
-                    </FieldBody>
-                </AdminPanelFiledset>
-
-
-
+                <div style={{margin: '20px 0'}}>
+                    <ReactQuill style={{width: '100%'}} theme="snow" value={description} onChange={setDescription} />
+                </div>
 
                 <button className="submit">
                     <span>Submit </span>
