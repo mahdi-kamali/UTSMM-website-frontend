@@ -1,6 +1,7 @@
 import {lazy, useState} from "react"
 import {Suspense} from "react"
 import CommentPage from './jsx/pages/comment/commentPage';
+import {QueryClientProvider, QueryClient} from '@tanstack/react-query';
 
 // Application styles
 import "./css/global/global.css"
@@ -84,136 +85,141 @@ const BlogPage = lazy(() => import("./jsx/pages/blog-page/BlogPage"));
 const FAQsPage = lazy(() => import("./jsx/pages/Faq-page/FAQsPage"));
 const AdminDashboard = lazy(() => import("./jsx/dashboards/admin/AdminDashboard"));
 const UserDashboard = lazy(() => import("./jsx/dashboards/user/UserDashboard"));
+const queryClient = new QueryClient();
 
 function App() {
     const [mainMenuState, setMainMenuState] = useState(false);
     const [userPanelMenuState, setUserPanelMenuState] = useState(false);
 
-    return (<div className="App">
-            <BrowserRouter>
-                <Header
-                    userPanelMenuState={userPanelMenuState}
-                    setUserPanelMenuState={setUserPanelMenuState}
-                    mainMenuState={mainMenuState}
-                    setMainMenuState={setMainMenuState}
-                />
-                <Routes>
-                    <Route
-                        path='/'
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <MainPage/>
-                        </Suspense>}
+    return (
+        <div className="App">
+            <QueryClientProvider client={queryClient}>
+                <BrowserRouter>
+                    <Header
+                        userPanelMenuState={userPanelMenuState}
+                        setUserPanelMenuState={setUserPanelMenuState}
+                        mainMenuState={mainMenuState}
+                        setMainMenuState={setMainMenuState}
                     />
-                    <Route
-                        path='/fake'
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <PagesLoaders/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path='/home'
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <MainPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path='/auth/recovery/password'
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <PasswordRecoveryPage />
-                        </Suspense>}
-                    />
-                    <Route
-                        path='/auth/'
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <AuthPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path='/services'
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <ServicesPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/faqs"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <FAQsPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/blog"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <BlogPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/blog/:blogID"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <BlogDetailPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/about-us"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <AboutUsPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/contact-us"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <ContactUsPage/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/admin/dashboard"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <AdminDashboard/>
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/user/dashboard/:page"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <UserDashboard
-                                userDashboardMenuState={userPanelMenuState}
-                                setUserDashboardMenuState={setUserPanelMenuState}
-                            />
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/user/dashboard/"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <UserDashboard
-                                userDashboardMenuState={userPanelMenuState}
-                                setUserDashboardMenuState={setUserPanelMenuState}
-                            />
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/user/dashboard/"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <UserDashboard
-                                userDashboardMenuState={userPanelMenuState}
-                                setUserDashboardMenuState={setUserPanelMenuState}
-                            />
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/comment"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <CommentPage />
-                        </Suspense>}
-                    />
-                    <Route
-                        path="/*"
-                        element={<Suspense fallback={<PagesLoaders/>}>
-                            <ErrorPage/>
-                        </Suspense>}
-                    />
-                </Routes>
-                <Footer/>
-                <PopUopContainer/>
-            </BrowserRouter>
-        </div>);
+                    <Routes>
+                        <Route
+                            path='/'
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <MainPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path='/fake'
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <PagesLoaders/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path='/home'
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <MainPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path='/auth/recovery/password'
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <PasswordRecoveryPage />
+                            </Suspense>}
+                        />
+                        <Route
+                            path='/auth/'
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <AuthPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path='/services'
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <ServicesPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/faqs"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <FAQsPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/blog"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <BlogPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/blog/:blogID"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <BlogDetailPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/about-us"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <AboutUsPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/contact-us"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <ContactUsPage/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/admin/dashboard"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <AdminDashboard/>
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/user/dashboard/:page"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <UserDashboard
+                                    userDashboardMenuState={userPanelMenuState}
+                                    setUserDashboardMenuState={setUserPanelMenuState}
+                                />
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/user/dashboard/"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <UserDashboard
+                                    userDashboardMenuState={userPanelMenuState}
+                                    setUserDashboardMenuState={setUserPanelMenuState}
+                                />
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/user/dashboard/"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <UserDashboard
+                                    userDashboardMenuState={userPanelMenuState}
+                                    setUserDashboardMenuState={setUserPanelMenuState}
+                                />
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/comment"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <CommentPage />
+                            </Suspense>}
+                        />
+                        <Route
+                            path="/*"
+                            element={<Suspense fallback={<PagesLoaders/>}>
+                                <ErrorPage/>
+                            </Suspense>}
+                        />
+                    </Routes>
+                    <Footer/>
+                    <PopUopContainer/>
+                </BrowserRouter>
+            </QueryClientProvider>
+        </div>
+    );
 }
 
 export default App;
