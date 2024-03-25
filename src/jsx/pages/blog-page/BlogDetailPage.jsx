@@ -1,69 +1,42 @@
 import React from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
-import { useFetch } from '../../../lib/useFetch'
-import { API, SERVER } from '../../../lib/envAccess'
-import { Icon } from '@iconify/react';
-
-
+import {useQuery} from "@tanstack/react-query";
+import axios from "axios";
+import { useLocation } from 'react-router-dom';
+import '../../../css/pages/blogs-page/BlogsPageStyle.css';
 
 export default function BlogDetailPage() {
+  const location = useLocation();
+  const pathname = location.pathname;
+  const lastRoute = pathname.substring(pathname.lastIndexOf('/') + 1);
 
-
-  const { blogID } = useParams()
-  const navigator = useNavigate()
-
-
-  const [blog, error, loading, setUrl, refresh] = useFetch(
-    API.PUBLIC.BLOGS.BLOG.GET + blogID
-  )
-
-
-
-
-
-  if (error) {
-    navigator("/404")
-  }
-
-
-
+  const {
+    data,
+    isLoading,
+    isError
+  } = useQuery({
+    queryFn: async () => {
+      const {data} = await axios.get('https://utsmm.liara.run/api/blogs');
+      return data.entities.blogs.find(item => item.slug === lastRoute)
+    }
+  });
 
   return (
-    <main className='blog-detail-page'>
-      <div className="poster">
-        <img src={SERVER.BASE_URL + blog.image} alt="" />
-      </div>
-
-      <div className="info">
-        <div className="header">
-          <div className="left">
-            <h1>{blog.title}</h1>
-          </div>
-          <div className="right">
-            <div className="date">
-              <Icon icon="clarity:date-solid" />
-              <span>
-                {new Date(blog.createdAt).toUTCString()}
-              </span>
-            </div>
-          </div>
-        </div>
-        <div className="body">
-          <p>
-            {blog.description}
-          </p>
-        </div>
-      </div>
-
-
-
-
-      <div className="comments">
-        <div className="item">
-
-        </div>
-      </div>
-
-    </main>
+      <section className={'blog-page'}>
+        <main>
+          {
+            (isLoading)
+                ? <h1>Loading</h1>
+                : (isError)
+                    ? <h1>There was an error</h1>
+                    : (
+                        <>
+                          <img className="poster" src={data.image} alt={data.short_description}/>
+                          <h1 className={'title'}>{data.title}</h1>
+                          <p className={'content'}>{data.short_description}</p>
+                        </>
+                    )
+          }
+        </main>
+      </section>
   )
 }
